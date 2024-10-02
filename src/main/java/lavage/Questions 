@@ -1,0 +1,10 @@
+Réponse aux questions : 
+
+1) Y a-t-il des incohérences - doublon de numéro d'assiette ; nombre d'assiettes incohérent ? Regarder dans le code et expliquer comment la classe Assiette est préservée des incohérences entre threads :
+
+Il y a pas de doublons. Par contre le nombre d'assiettes est infini, il n'y a pas de vérification de la taille de la pile. De plus, l'essuyeur n'est pas pris en compte.  
+
+2)Expliquer pourquoi le thread représentant l'essuyeur ne peut prendre d'assiette dans la pile.
+
+Il ne prend pas en compte le nombre d'assiettes dans la pile. Le push() d’ajouter une assiette dans la pile une fois lavé. Mais cette fonction n’a pas de notifyAll() ce qui empêche de communiquer sur l'ajout d'une assiette dans la pile. Donc l’essuyeur ne sait pas qu’il y a des assiettes à essuyer. 
+
